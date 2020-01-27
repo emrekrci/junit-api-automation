@@ -16,10 +16,9 @@ public class MainTests extends APITestCase {
 	
 	@Test
 	public void verify_api_starts_empty() {
-		Response resp = get("http://restcountries.eu/rest/v1/name/norway");
+		Response resp = get(BASE_URL + API_ROOT);
 		JSONArray jsonResponse = new JSONArray(resp.asString());
-		String capital = jsonResponse.getJSONObject(0).getString("capital");
-		assertEquals("Oslo", capital);
+		assertEquals(0, jsonResponse.length());
 	}
 	
 	@Test
